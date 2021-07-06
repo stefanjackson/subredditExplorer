@@ -8,8 +8,8 @@ import Article from './components/Article';
   const [subreddit, setSubreddit] = useState('memes');
 
   useEffect(() => {
-  fetch("https://www.reddit.com/r/memes.json").then(response => {
-    if (response.status != 200) {
+  fetch("https://www.reddit.com/r/"+ subreddit +".json").then(response => {
+    if (response.status !== 200) {
       console.log("Error!");
       return;
     }
@@ -26,15 +26,32 @@ import Article from './components/Article';
     return (
       <div className="App">
         <header className="appHeader">
-            <i class="fab fa-reddit"></i>
-           <h1>Explore https://www.reddit.com/r/ </h1>
-          <input type="text" className="input" value="memes" />
+          <div className="title-div">
+             <i className="fab fa-reddit"></i>
+             <h1>Subreddit Explorer</h1>
+          </div> 
+
+          <div className="searchBar">
+            <input type="text" id="searchBarLabel" className="input" value={subreddit} onChange={e => setSubreddit(e.target.value)}/>
+          </div>
+          
         </header>
 
-        <div className="articles">
+        <div className="main-container">
+          <div className="articles">
           {
             (articles != null) ? articles.map((article, index) => <Article key={index} article={article.data} /> ) : ""
           }
+          </div>
+
+        </div>
+
+        <footer>
+          <p><span>Subreddit Explorer</span> by Stefan Jackson</p>
+        </footer>
+
+        <div>
+          <a href="#"><i class="fas fa-angle-double-up"></i></a>
         </div>
       </div>
       );
