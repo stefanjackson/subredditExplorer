@@ -17,6 +17,9 @@ function Article(props) {
 				{ 
 					props.article.post_hint === 'image' ? <img src={props.article.url_overridden_by_dest} alt=""/> : <img src={props.article.thumbnail} style={{height:'300px'}} />
 				}
+				<div className="article-style article-style-bottom">
+					<p><i class="far fa-comment-alt"></i>{props.article.num_comments} Comments</p>
+				</div>
 			</a>
 		</article>
 		);
