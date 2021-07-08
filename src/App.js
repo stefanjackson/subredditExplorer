@@ -23,6 +23,7 @@ import Article from './components/Article';
     })
   }, [subreddit]);
 
+
     return (
       <div className="App">
         <header className="appHeader">
@@ -32,9 +33,8 @@ import Article from './components/Article';
           </div> 
 
           <div className="searchBar">
-            <input type="text" id="searchBarLabel" className="input" value={subreddit} onChange={e => setSubreddit(e.target.value)}/>
-          </div>
-          
+            <input type="text" id="searchBarLabel" className="input" value={subreddit} onChange={e => setSubreddit(e.target.value)}/>      
+          </div>      
         </header>
 
         <div className="main-container">
@@ -51,7 +51,7 @@ import Article from './components/Article';
         </footer>
 
         <div>
-          <a href="#"><i class="fas fa-angle-double-up"></i></a>
+          <a href="#"><i className="fas fa-angle-double-up"></i></a>
         </div>
       </div>
       );
